@@ -1,6 +1,9 @@
-# 7. 14
----
-+ Getting started
-+ Variables and Constants
-+ Data Types in Swift
-+ Operators
+
+ **Today, What I learned  **
+ ** 2022. 7. 17.**
+
+ 
++ collections
++ Making Decisions 2
++ 흐름제어
++ 함수
