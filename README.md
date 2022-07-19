@@ -1,10 +1,11 @@
 
  **Today, What I learned  **
- ** 2022. 7. 17.**
+ ** 2022. 7. 19.**
 
+ ---
  
-+ collections
-+ Making Decisions 2
-+ 흐름제어
-+ 함수1
-Git Test
++ Optionals
++ Creating Your Own Types
++ Classes
++ 야곰 Chapter 8 optional
++ 야곰 chapter 9 classes
