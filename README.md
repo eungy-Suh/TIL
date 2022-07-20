@@ -1,11 +1,9 @@
 
  **Today, What I learned  **
- ** 2022. 7. 19.**
+ ** 2022. 7. 20.**
 
  ---
  
-+ Optionals
-+ Creating Your Own Types
-+ Classes
-+ 야곰 Chapter 8 optional
-+ 야곰 chapter 9 classes
++ 야곰 기본문법 인강 가볍게 복습
++ optional에 대한 개념은 좀 어렵다..
++ slid에 내용정리.++
