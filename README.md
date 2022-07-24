@@ -1,31 +1,122 @@
 
  **Today, What I learned  **
- ** 2022. 7. 23.**
+ ** 2022. 7. 24.**
 
  ---
- 10장. 프로퍼티/ 메소드
 
- 프로퍼티: 클래스, 구조체 또는 열거형 등에 관련된 값.
- 메서드 : 특정 타입에 관련된 함수.
+6.3 구문이름표
+var numbers: [Int] = [4, 123, 456, 7890]
 
+numberLoop: for num in numbers{
+    if num > 5 || num < 1 {
+        continue numberLoop
+}
+
+    var count: Int = 0
+printLoop: while true {
+    print(num)
+    count += 1
+    if count == num {
+        break printLoop
+    }
+}
+
+    removeLoop : while true {
+        if numbers.first != num {
+            break numberLoop
+        }
+    }
+}
+ 함수와 메서드
  
- 프로퍼티 :
-    1. 저장프로퍼티: 인스턴스의 변수 또는 상수를 의미. 구조체와 클래스에서만 사용가능.
-    2. 연산프로퍼티: 값을 저장한 것이 아니라 특정 연산을 실행한 결괏값. 클래스, 구조체 열거형에 쓰임.
- 
+ 함수와 메서드는 기본적으로 같음. 상황이나 위치에 따라 다른용어로 부르는 것 뿐임.
+ 구조체, 클래스, 열거형 등 특정 타입에 연관되어 사용하는 함수를 메서드.
+ 모듈 전체에서 전역적으로 사용할 수 있는함수를 그냥 함수.
+ 함수가 위치하거나 사용되는 범위 등에 따라 호칭이 달라질 뿐, 함수라는것임.
 
-1. 저장프로퍼티 : 클래스 또는 구조체의 인스턴스와 연관된 값을 저장하는 가장 단순한 개념의 프로퍼티.
-    * var 키워드를 사용하면 변수 저장 프로퍼티 let 키워드를 사요하면 상수 저장 프로퍼티.
-    * 저장 프로퍼티를 정의할 때 프로퍼티 기본값과 초깃값을 지정해 줄 수 있음.
- 
- ** 구조체와 클래스의 저장 프로퍼티
- 구조체의 저장 프로퍼티가 아니더라도 구조체는 저장프로퍼티를 모두 포함하는 이니셜라이져를 자동으로 생성함. 하지만 클래스의 저장프로퍼티는 옵셔널이 아니라면 프로퍼티 기본값을 지정해주거나 사용자 정의 이니셜라이저를 통해 반드시 초기화해주어야함. 또, 클래스 인스턴스의 상수 프로퍼티는 인스턴스 이니셜라이즈(초기화) 될 때 한번만 값을 할당할 수 있으며, 자식클래스에서 이 초기화를 변경 할 수 없음.
- 
+func hello(name: String) -> String{
+    return "hello \(name)"
+}
 
-메서드: 특정 타입에 관련된 함수.
+let sayHo : String = hello(name: "eungy")
+print(sayHo)
+
+func introduce(name:String) -> String {
+    "제 이름은" + name + "입니다"
+}
+
+let sayEungy : String = introduce(name: "eungy")
+print(sayEungy)
 
 
-인스턴스 메서드 : 특정 타입의 인스턴스에 속한 함수. 함수와의 유일한 차이는 인스턴스 메서드는 특정 타입내부에 구현.
-따라서 인스턴스가 존재할 때만 사용 가능.
+func sayHello(_ name: String, _ times: Int) ->String {
+    var result: String = " "
+    
+    for i in 0..<times {
+        result += "hello \(name)"
+    }
+    return result
+}
+
+print(sayHello("cepre ", 3))
 
 
+
+struct BasicInformation {
+    var name : String
+    var age : Int
+}
+
+var yagomInfo : BasicInformation = BasicInformation(name: "yagom", age: 99)
+yagomInfo.age = 100
+
+var friendInfo : BasicInformation = yagomInfo
+
+print("yagom`s age : \(yagomInfo.age)")
+print("friend`s age : \(friendInfo.age)")
+
+
+struct BasicAgain {
+var name : String
+var age : Int
+}
+
+var herName : BasicAgain = BasicAgain(name: "eungy", age: 55)
+
+herName.age = 32
+
+var himName : BasicAgain = herName
+
+print(herName.age)
+print(himName.age)
+
+
+class Person{
+    var height : Float = 0.0
+    var weight : Float = 0.0
+}
+
+var yagomInfo: Person = Person()
+var friendInfo: Person = yagomInfo
+
+print(yagomInfo.height)
+print(friendInfo.height)
+
+yagomInfo.height = 123.4
+
+print(yagomInfo.height)
+print(friendInfo.height)
+
+func changeBasicInfo(_ info: BasicInformation) {
+    var copiedInfo: BasicInformation = info
+    copiedInfo.age = 1
+    
+}
+func changePersonInfo(_ info: Person){
+    info.height = 144.2
+}
+changeBasicInfo(yagomInfo)
+
+print(yagomInfo)
+
+changePersonInfo(yagom)
