@@ -2,8 +2,8 @@
  **Today, What I learned  **
  ** 2022. 7. 27.**
 
- 
-//클로저 예시
+
+//클로저 예시 @@
 
 
 let names: [String] = ["widen", "eric", "yagom", "reww"]
