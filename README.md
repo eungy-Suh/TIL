@@ -1,127 +1,24 @@
 
- **Today, What I learned  **
- ** 2022. 7. 29.**
+ ** Today, What I learned  **
+ ** 2022. 7. 30.**
 
- protocol
+---
+1. 함수와 메서드
+  - 함수와 메서드는 기본적으로 같음. 상황이나 위치에 따라 다른 용어로 부르는 것 뿐임.
 
- protocol Talkable {
-    
-    // 프로퍼티 요구
-    //프로퍼티 요구는 항상 var 키워드를 사용함
-    // get은 읽기만 가능해도 상관없다는 뜻이며, get 과 set을 모두 명시하면 읽기 쓰기 모두 가능한 프로퍼티여야함
-    
-    var topic: String { get set }
-    var language: String { get }
-    
-    //메서드 요구
-    func talk()
-    
-    //이니셜라니저 요구
-    init(topic: String, language: String)
-    
-}
+구조체, 클래스, 열거형 등 특정타입에 연관되어 사용하는 함수를 **메서드**
 
-//프로토콜 채택 및 준수
+모듈 전체에서 전역적으로 사용할 수 있는 함수를 그냥 **함수**라고 부름.
+함수에서는 소괄호()를 생락할 수 없음.
 
-//Person 구조체는 Talkable 프로토콜을 채택했습니다.
-struct Person: Talkable {
+let introduceJenny: String = introduce(name: "jenny")
+print(introduceJenny)
+//Hello jenny!
 
-    var topic: String
-    var language: String
-    
-    //읽기 전용 프로퍼티 요구는 연산 프로퍼티로 대체가 가능함
-    //var language: String { get { return "한국어"}}
-    //물론 읽기, 쓰기 프로퍼티도 연산 프로퍼티로 대체할 수 있음.
-  /*  var subject: String = " "
-    var topic: String {
-        set {
-            self.subject = newValue
-        }
-        get {
-            return self.subject
-        }
-    */
-    func talk() {
-        print("\(topic)에 대해 \(language)로 말합니다")
-    }
-    init(topic:String, language: String) {
-        self.topic = topic
-        self.language = language
-    }
-}
+2. 매개변수는 함수를 정의할 때 외부로부터 받아들이는 전달 값의 이름. 전달인자 혹은 인자는 함수를 실제로 호출할때 전달하는 값을 의미. 
+위에서 hello(name: ) 함수에서 매개변수는 name이고, 실제 전달받는 값인 “jenny”가 전달인자임.
 
+##tip 
+스위프트에서 기본적으로 사용하는 키워드 대부분은 매개변수 이름으로 사용할 수 없음.
 
-//프로토콜 상속
-
-//프로토콜은 클래스와 다르게 다중상속이 가능
-
-protocol Readable {
-    func read()
-}
-protocol Writeable {
-    func write()
-}
-protocol ReadSpeakable: Readable {
-    func speak()
-}
-protocol ReadWriteSpeakable: Readable, Writeable {
-    func speak()
-}
-
-struct Somtype: ReadWriteSpeakable {
-    func read() {
-        print("READ")
-    }
-    func write() {
-        print("WRITE")
-    }
-    func speak() {
-        print("Speak")
-    }
-}
-
-//클래스 상속과 프로토콜
-//클래스에서 상속과 트로토콜 채택을 동시에 하려면 상속받으려는 클래스를 먼저 명시하고
-//그 뒤에 채택할 프로토콜 목록을 작성합니다.
-
-class SuperClass: Readable {
-    func read() {print("read")}
-}
-
-class SubClass: SuperClass, Writeable, ReadSpeakable {
-func write() {print("write")}
-func speak() {print("speak")}
-} //순서 지키기
-
-
-//프로토콜 준수 확인
-//인스턴스가 특정 프로토콜을 준수하는지 확인
-//is, as 연산자 사용
-
-let sup: SuperClass = SuperClass()
-let sub: SubClass = SubClass()
-
-var someAny: Any = sup
-someAny is Readable  //true
-someAny is Writeable //false
-
-someAny = sub
-someAny is Readable //true
-someAny is Writeable //true
-
-someAny = sup
-
-if let someReadable: Readable = someAny as? Readable {
-    someReadable.read()
-}  //read
-
-if let someReadSpeakable: ReadSpeakable = someAny as? ReadSpeakable {
-    someReadSpeakable.speak()
-}  //동작하지 않음
-
-
-someAny = sub
-
-if let someReadable: Readable = someAny as? Readable {
-    someReadable.read()
-} //read
+하지만, 이름을 지정해줄 떄 강세표 '로 이름을 감싸주면 대부분의 키워드를 이름으로 사용가능. ex) 'var’
