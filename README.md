@@ -19,7 +19,8 @@
     
     get은 읽기만 가능해도 상관없다는 뜻이며, **get** 과 **set**을 모두 명시하면 읽기 쓰기 모두 가능한 프로퍼티여야함
 
- protocol Talkable {
+```swift
+protocol Talkable {
  var topic: String { get set }
     var language: String { get }
     
@@ -28,3 +29,4 @@
     
     //이니셜라니저 요구
 	    init(topic: String, language: String)
+```
