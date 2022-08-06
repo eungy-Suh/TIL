@@ -1,30 +1,63 @@
 
  ** Today, What I learned  **
- ** 2022. 8.5.**
+ ** 2022. 8.6.**
 
 ---
-## UIStepper
-``` swift
-let stepper = UIStepper()
+## errorMessageLabel
 
-view.addSubview(stepper)
+```swift
+ class LoginViewController: UIViewController {
 
-let stepperWidth = stepper.frame.width
-        stepper.frame.origin = CGPoint(x: view.frame.midX - stepperWidth / 2,
-                                       y: view.frame.midY - 100)
-        stepper.addTarget(self, action: #selector(didTapStepper(_:)), for: .valueChanged)
+let errorMessageLabel = UILabel()
 
+view.addSubview(errorMessageLabel)
+
+extension LoginViewController {
+    private func style() {
+
+				errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorMessageLabel.textAlignment = .center
+        errorMessageLabel.textColor = .red
+        errorMessageLabel.numberOfLines = 0 //레이블을 여러줄 만드는것.
+				errorMessageLabel.text = " "
+        errorMessageLabel.isHidden = true //숨겨놓자
+
+private func layout() {
+
+NSLayoutConstraint.activate([
+            errorMessageLabel.topAnchor.constraint
+						(equalToSystemSpacingBelow: signInButton.bottomAnchor, multiplier: 2),
+            
+						errorMessageLabel.leadingAnchor.constraint
+						(equalTo: loginView.leadingAnchor),
+           
+						errorMessageLabel.trailingAnchor.constraint
+						(equalTo: loginView.trailingAnchor)
+        ])
+```
+
+```swift
+//signInButton.addTarget(self, action: #selector(signInTapped(_:)), 
+													//for: .primaryActionTriggered)
 
 @objc
-    func didTapStepper(_ sender: UIStepper){
-				textField.text = String(sender.value) // 텍스트필드 내에 표시할 수 있음.
-        print(sender.value)
-
-
-##처음 페이지 설정
-
-guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UINavigationController(rootViewController: ViewController())
-        window?.backgroundColor = .systemBackground
-        window?.makeKeyAndVisible()
+    func signInTapped(_ sender: UIButton){
+        errorMessageLabel.isHidden = true
+        login()
+    }
+    
+    private func login() {
+        guard let username = username, let password = password else {
+            assertionFailure("Username / password never be nil")
+            return
+        }
+        if username.isEmpty || password.isEmpty {
+            configureView(withMessage:"Username / password never be nil")
+						return
+        }
+        
+    }                              //매개변수 message 앞의 인수 레이블
+    private func configureView(withMessage message: String){
+        errorMessageLabel.isHidden = false
+        errorMessageLabel.text = message
+```
