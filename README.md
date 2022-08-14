@@ -1,21 +1,22 @@
 
  ** Today, What I learned  **
- ** 2022. 8.12.**
+ ** 2022. 8.14.**
 
 ---
-## NumberFormatter ##
+## ViewController LifeCycle ##
 
-세 자리수 마다 콤마(,) 넣기
-``` swift
-let numberFormatter = NumberFormatter()
-numberFormatter.numberStyle = .decimal
+ViewDidLoad
+이건 뷰 컨트롤러를 만들 때 한 번만 호출합니다.
 
-let price = 10005000
-let result = numberFormatter.string(from: NSNumber(value:price))!
-print(result) // "10,005,000"
-```
+ViewWillAppear만들어진 뷰 컨트롤러가 뷰 계층 구조에 추가되기 직전에 호출됩니다.
+즉 이름 그대로 뷰가 곧 보일 때 호출되는 메서드입니다.
 
-decimal로 스타일 지정하여 콤마를 넣을 수 있다.
-maximumFractionDigits로 최대 소수점 자리수를 지정할 수 있다. 
-(기본은 세자리)
-numerFormatter로 처리된 값은 optional로 반환되기 때문에 옵셔널 바인딩이 필요하다.
+ViewDidAppear만들어진 뷰 컨트롤러가 뷰 계층 구조에 추가된 직후에 호출됩니다.
+이름 그대로 뷰가 보여진 뒤 호출되는 메서드입니다.
+
+ViewWillDisappear뷰 컨트롤러가 뷰 계층 구조에서 사라지기 직전에 호출됩니다.
+뷰가 사라지기 직전에 호출되는 메서드입니다.
+
+ViewDidDisappear뷰 컨트롤러가 뷰 계층 구조에서 사라진 직후 호출됩니다.
+뷰가 사라진 직후에 호출되는 메서드입니다.
+###
