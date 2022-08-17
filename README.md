@@ -3,42 +3,14 @@
  ** 2022. 8.15.**
 
 ---
-## errorMessageLabel
+## UIGestureRecognizer
 
-```swift
- let signInButton = UIButton(type: .system)
+# Gesture Type
 
-    view.addSubview(errorMessageLabel)
-
-        errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
-        errorMessageLabel.textAlignment = .center
-        errorMessageLabel.textColor = .systemRed
-        errorMessageLabel.numberOfLines = 0
-        errorMessageLabel.isHidden = true
-
-                NSLayoutConstraint.activate([
-            errorMessageLabel.topAnchor.constraint(equalToSystemSpacingBelow: signInButton.bottomAnchor, multiplier: 2),
-            errorMessageLabel.leadingAnchor.constraint(equalTo: signInButton.leadingAnchor),
-            errorMessageLabel.trailingAnchor.constraint(equalTo: signInButton.trailingAnchor)
-            
-        ])
-
-   @objc
-    func signInTapped(_ sender: UIButton){
-        errorMessageLabel.isHidden = true
-        login()
-    }
-        
-        private func login() {
-            guard let username = username, let password = password else {
-                assertionFailure("Username / password should never be nil")
-                return
-        }
-            if username.isEmpty || password.isEmpty {
-                configureView(withMessage: "Username / password should cannot be blank")
-            }
-    }
-    private func configureView(withMessage Message: String){
-        errorMessageLabel.isHidden = false
-        errorMessageLabel.text = Message
-    }
+- UITapGestureRecognizer
+- UIPinchGestureRecognizer
+- UIRotationGestureRecognizer
+- UISwipeGestureRecognizer
+- UIPanGestureRecognizer
+- UIScreenEdgePanGestureRecognizer
+- UILongPressGestureRecognizer
