@@ -5,4 +5,4 @@
 ---
 ## 용어 정리
 
-URL
+DispatchQueue
