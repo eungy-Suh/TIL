@@ -1,23 +1,27 @@
 
  ** Today, What I learned  **
- ** 2022. 9.12.**
+ ** 2022. 9.17.**
 
 ---
-## Zip
+## if-let Unwapping
+``` swift
+struct Student {
+let firstName: String
+    let lastName: String
+    let middleName: String?
+    let grade: String?
+{
+
+let student = 
+Student(firstName: "John", lastName: "Doe", middleName: "Smith", grade: "A")
+ //Student(firstName: "John", lastName: "Doe", middleName: Optional("Smith"), grade: Optional("A"))
 ```
-let students = ["Alex", "Mary", "John", "Steven"]
-let grades = [3.4, 2.8]
+middleName, grade 에 옵셔널이 씌어진 값이 나오는걸 볼수 있다.
+이 옵셔널을 if-let을 이용해서 풀어서 값을 내보내보자.
+``` swift
 
-let pair = zip(students, grades)
-
-for studentAndGrade in pair {
-    print(studentAndGrade.0)
-    print(studentAndGrade.1)
-}
-//Alex
-//3.4
-//Mary
-//2.8
-
-//짝이 맞지 않으면 도출되지 않음.
+        if let middleName = middleName {
+            studentDescription += "\(middleName)"
+        }
+        //John Smithß
 ```
