@@ -1,27 +1,49 @@
 
  ** Today, What I learned  **
- ** 2022. 9.17.**
+ ** 2022. 9.19.**
 
 ---
-## if-let Unwapping
-``` swift
-struct Student {
-let firstName: String
-    let lastName: String
-    let middleName: String?
-    let grade: String?
-{
+## Slide Animation
 
-let student = 
-Student(firstName: "John", lastName: "Doe", middleName: "Smith", grade: "A")
- //Student(firstName: "John", lastName: "Doe", middleName: Optional("Smith"), grade: Optional("A"))
-```
-middleName, grade 에 옵셔널이 씌어진 값이 나오는걸 볼수 있다.
-이 옵셔널을 if-let을 이용해서 풀어서 값을 내보내보자.
 ``` swift
+var leadingEdgeOnScreen: CGFloat = 16
+var leadingEdgeOffScreen: CGFloat = -1000
+    
+var titleLeadingAnchor: NSLayoutConstraint?    //Bankey
+var subtitleLeadingAnchor: NSLayoutConstraint?  // Bankey아래글
 
-        if let middleName = middleName {
-            studentDescription += "\(middleName)"
+override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animate()
+    }
+
+// Title
+  NSLayoutConstraint.activate([
+     subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
+     titleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
+        ])
+        
+     titleLeadingAnchor = titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingEdgeOffScreen)
+     titleLeadingAnchor?.isActive = true
+        
+// Subtitle
+   NSLayoutConstraint.activate([
+     loginView.topAnchor.constraint(equalToSystemSpacingBelow: subtitleLabel.bottomAnchor, multiplier: 3),
+     subtitleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
+        ])
+        
+     subtitleLeadingAnchor = subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingEdgeOffScreen)
+     subtitleLeadingAnchor?.isActive = true
+
+// MARK: - Animations
+extension LoginViewController {
+    private func animate() {
+        let animator1 = UIViewPropertyAnimator(duration: 1, curve: .easeInOut) {
+            self.titleLeadingAnchor?.constant = self.leadingEdgeOnScreen
+            self.subtitleLeadingAnchor?.constant = self.leadingEdgeOnScreen
+            self.view.layoutIfNeeded()
         }
-        //John Smithß
+        animator1.startAnimation()
+    }
+}
 ```
