@@ -18,6 +18,8 @@
 		301F98F128D6B6CD007CE6E1 /* AccountSummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F98F028D6B6CD007CE6E1 /* AccountSummaryHeaderView.swift */; };
 		3049193728D6F1AF00C7197D /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3049193628D6F1AF00C7197D /* Decimal.swift */; };
 		3049193928D6F21C00C7197D /* CurrencyFomatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3049193828D6F21C00C7197D /* CurrencyFomatter.swift */; };
+		3049193B28D81EE800C7197D /* NSNotifidationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3049193A28D81EE800C7197D /* NSNotifidationName.swift */; };
+		304A297428D83B120073F112 /* shakeyBell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A297328D83B120073F112 /* shakeyBell.swift */; };
 		3082E54628D6D17C00FBA0C9 /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3082E54528D6D17C00FBA0C9 /* AccountSummaryCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		301F98F028D6B6CD007CE6E1 /* AccountSummaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryHeaderView.swift; sourceTree = "<group>"; };
 		3049193628D6F1AF00C7197D /* Decimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decimal.swift; sourceTree = "<group>"; };
 		3049193828D6F21C00C7197D /* CurrencyFomatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFomatter.swift; sourceTree = "<group>"; };
+		3049193A28D81EE800C7197D /* NSNotifidationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotifidationName.swift; sourceTree = "<group>"; };
+		304A297328D83B120073F112 /* shakeyBell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeyBell.swift; sourceTree = "<group>"; };
 		3082E54528D6D17C00FBA0C9 /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,14 +85,32 @@
 			path = bankeySummary;
 			sourceTree = "<group>";
 		};
+		304A297128D839830073F112 /* number */ = {
+			isa = PBXGroup;
+			children = (
+				3049193A28D81EE800C7197D /* NSNotifidationName.swift */,
+				3049193828D6F21C00C7197D /* CurrencyFomatter.swift */,
+				3049193628D6F1AF00C7197D /* Decimal.swift */,
+			);
+			path = number;
+			sourceTree = "<group>";
+		};
+		304A297228D83B020073F112 /* component */ = {
+			isa = PBXGroup;
+			children = (
+				304A297328D83B120073F112 /* shakeyBell.swift */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
 		3082E54228D6D0CA00FBA0C9 /* AccountSummary */ = {
 			isa = PBXGroup;
 			children = (
 				301F98EE28D5A70F007CE6E1 /* AccountSummaryViewController.swift */,
-				3049193628D6F1AF00C7197D /* Decimal.swift */,
-				3049193828D6F21C00C7197D /* CurrencyFomatter.swift */,
 				3082E54428D6D14E00FBA0C9 /* cells */,
 				3082E54328D6D11000FBA0C9 /* Header */,
+				304A297228D83B020073F112 /* component */,
+				304A297128D839830073F112 /* number */,
 			);
 			name = AccountSummary;
 			path = bankeySummary;
@@ -186,11 +208,13 @@
 				301F98F128D6B6CD007CE6E1 /* AccountSummaryHeaderView.swift in Sources */,
 				301F98DD28D59D12007CE6E1 /* ViewController.swift in Sources */,
 				301F98D928D59D12007CE6E1 /* AppDelegate.swift in Sources */,
+				304A297428D83B120073F112 /* shakeyBell.swift in Sources */,
 				301F98EF28D5A70F007CE6E1 /* AccountSummaryViewController.swift in Sources */,
 				301F98DB28D59D12007CE6E1 /* SceneDelegate.swift in Sources */,
 				3049193928D6F21C00C7197D /* CurrencyFomatter.swift in Sources */,
 				301F98ED28D59F9A007CE6E1 /* MainViewController.swift in Sources */,
 				3049193728D6F1AF00C7197D /* Decimal.swift in Sources */,
+				3049193B28D81EE800C7197D /* NSNotifidationName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
