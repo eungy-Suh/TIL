@@ -1,9 +1,9 @@
 
  ** Today, What I learned  **
- ** 2022. 9.22.**
+ ** 2022. 9.23.**
 
 ---
-## async await
-
+## professoinal - course
+section 15. networking
 
 
