@@ -1,10 +1,10 @@
 
  ** Today, What I learned  **
- ** 2022. 10.7.**
+ ** 2022. 10.11**
 
 ---
 ## TeamProject
-데이터추가
+ filter / sorted
 
 
 
